@@ -190,8 +190,11 @@ function formatDate(str) {
  * 12, 2023 => 10
  * 1, 2024 => 8
  */
-function getCountWeekendsInMonth(/* month, year */) {
-  throw new Error('Not implemented');
+function getCountWeekendsInMonth(month, year) {
+  return Array.from(
+    { length: new Date(year, month, 0).getDate() },
+    (_, index) => new Date(year, month - 1, index + 1).getDay()
+  ).filter((day) => day % 6 === 0).length;
 }
 
 /**
