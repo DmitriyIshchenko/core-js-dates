@@ -211,10 +211,10 @@ function getWeekNumberByDate(date) {
   const millisecondsInDay = 24 * 60 * 60 * 1000;
 
   const yearStart = new Date(date.getFullYear(), 0, 1);
-  const weekdayOffset = yearStart.getDay() + 1;
+
   const daysPassed = (date - yearStart) / millisecondsInDay;
 
-  return Math.ceil((daysPassed + weekdayOffset) / 7);
+  return Math.ceil((daysPassed + 1) / 7);
 }
 
 /**
